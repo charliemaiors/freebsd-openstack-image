@@ -1,0 +1,80 @@
+#
+# $FreeBSD: releng/11.2/release/Makefile.openstack
+#
+#
+# Makefile for creating an EC2 AMI from a disk image.
+#
+
+CLEANFILES+=		openstackimage
+
+.if !exists(/usr/local/bin/openstack)
+CW_EC2_PORTINSTALL=	cw-openstack-portinstall
+CLEANFILES+=		${CW_EC2_PORTINSTALL}
+.else
+CW_EC2_PORTINSTALL=
+.endif
+
+cw-openstack-portinstall:
+.if exists(${PORTSDIR}/net/py-python-openstackclient/Makefile)
+	env - PATH=$$PATH make -C ${PORTSDIR}/net/py-python-openstackclient BATCH=1 all install clean
+.else
+. if !exists(/usr/local/sbin/pkg-static)
+	env ASSUME_ALWAYS_YES=yes pkg bootstrap -y
+. endif
+	env ASSUME_ALWAYS_YES=yes pkg install -y net/py-python-openstackclient
+.endif
+	@touch ${.TARGET}
+
+openstackimage: cw-openstack ${CW_EC2_PORTINSTALL}
+.if !defined(OS_USERNAME) || !exists(${OS_USERNAME})
+	@echo "--------------------------------------------------------------"
+	@echo ">>> OS_USERNAMEE must be specified for Openstack Image Upload"
+	@echo "--------------------------------------------------------------"
+	@false
+.endif
+.if !defined(OS_PASSWORD)
+	@echo "--------------------------------------------------------------"
+	@echo ">>> OS_PASSWORD must be specified for Openstack Image Upload"
+	@echo "--------------------------------------------------------------"
+	@false
+.endif
+.if !defined(OS_AUTH_URL)
+	@echo "--------------------------------------------------------------"
+	@echo ">>> OS_AUTH_URL must be specified for Openstack Image Upload"
+	@echo "--------------------------------------------------------------"
+	@false
+.endif
+.if !defined(PS1)
+	@echo "--------------------------------------------------------------"
+	@echo ">>> PS1 must be specified for Openstack Image Upload"
+	@echo "--------------------------------------------------------------"
+	@false
+.endif
+.if !defined(OS_PROJECT_NAME)
+	@echo "--------------------------------------------------------------"
+	@echo ">>> OS_PROJECT_NAME must be specified for Openstack Image Upload"
+	@echo "--------------------------------------------------------------"
+	@false
+.endif
+.if !defined(OS_USER_DOMAIN_NAME)
+	@echo "--------------------------------------------------------------"
+	@echo ">>> OS_USER_DOMAIN_NAME must be specified for Openstack Image Upload"
+	@echo "--------------------------------------------------------------"
+	@false
+.endif
+.if !defined(OS_PROJECT_DOMAIN_NAME)
+	@echo "--------------------------------------------------------------"
+	@echo ">>> OS_PROJECT_DOMAIN_NAME must be specified for Openstack Image Upload"
+	@echo "--------------------------------------------------------------"
+	@false
+.endif
+.if !defined(OS_IDENTITY_API_VERSION)
+	@echo "--------------------------------------------------------------"
+	@echo ">>> OS_IDENTITY_API_VERSION must be specified for Openstack Image Upload"
+	@echo "--------------------------------------------------------------"
+	@false
+.endif
+	/usr/local/bin/openstack image create --disk-format qcow2 --container-format bare \
+	    ${.OBJDIR}/openstack.qcow2 \
+	    FreeBSD-`uname -r`
+	@touch ${.TARGET}

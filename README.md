@@ -1,5 +1,5 @@
 # FreeBSD Openstack Image
-This repository provides the base files for build your own FreeBSD image for Openstack.
+This repository provides the base files for build your own FreeBSD image for Openstack using normal build system (using GENERIC kernel) and [CLOUDWARE](https://www.freebsd.org/cgi/man.cgi?release(7)).
 
 ## Requirements
 
