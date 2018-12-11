@@ -3,7 +3,7 @@ This repository provides the base files for build your own FreeBSD image for Ope
 
 ## Requirements
 
-The only requirement is the ```src```(source) component installed.
+The only requirements are the ```src```(source) component installed and ```net/py-python-openstackclient``` port (for image upload)
 
 ## Instructions
 

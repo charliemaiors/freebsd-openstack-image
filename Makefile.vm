@@ -150,3 +150,4 @@ cloudware-release:
 .include "${.CURDIR}/Makefile.azure"
 .include "${.CURDIR}/Makefile.gce"
 .include "${.CURDIR}/Makefile.vagrant"
+.include "${.CURDIR}/Makefile.openstack"
