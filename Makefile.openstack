@@ -28,7 +28,7 @@ cw-openstack-portinstall:
 openstackimage: cw-openstack ${CW_EC2_PORTINSTALL}
 .if !defined(OS_USERNAME) || !exists(${OS_USERNAME})
 	@echo "--------------------------------------------------------------"
-	@echo ">>> OS_USERNAMEE must be specified for Openstack Image Upload"
+	@echo ">>> OS_USERNAME must be specified for Openstack Image Upload"
 	@echo "--------------------------------------------------------------"
 	@false
 .endif
