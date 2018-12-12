@@ -1,0 +1,13 @@
+language: bash
+
+script:
+- tar -cJf openstack.tar.xz tools/ Makefile.openstack Makefile.vm
+
+deploy:
+  provider: releases
+  api_key: "$GITHUB_TOKEN"
+  file_glob: true
+  file: openstack.tar.xz
+  skip_cleanup: true
+  on:
+    tags: true
