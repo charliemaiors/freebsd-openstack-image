@@ -75,6 +75,6 @@ openstackimage: cw-openstack ${CW_EC2_PORTINSTALL}
 	@false
 .endif
 	/usr/local/bin/openstack image create --disk-format qcow2 --container-format bare \
-	    ${.OBJDIR}/openstack.qcow2 \
+	    --file ${.OBJDIR}/openstack.qcow2 \
 	    FreeBSD-`uname -r`
 	@touch ${.TARGET}
