@@ -2,7 +2,7 @@
 # $FreeBSD: releng/11.2/release/Makefile.openstack
 #
 #
-# Makefile for creating an EC2 AMI from a disk image.
+# Makefile for creating an Glance Image from a disk image.
 #
 
 .if !exists(/usr/local/bin/openstack)
