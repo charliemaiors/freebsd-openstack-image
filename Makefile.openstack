@@ -5,14 +5,14 @@
 # Makefile for creating an EC2 AMI from a disk image.
 #
 
-CLEANFILES+=		openstackimage
-
 .if !exists(/usr/local/bin/openstack)
-CW_EC2_PORTINSTALL=	cw-openstack-portinstall
-CLEANFILES+=		${CW_EC2_PORTINSTALL}
+CW_OPENSTACK_PORTINSTALL=	cw-openstack-portinstall
+CLEANFILES+=		${CW_OPENSTACK_PORTINSTALL}
 .else
-CW_EC2_PORTINSTALL=
+CW_OPENSTACK_PORTINSTALL=
 .endif
+
+CLEANFILES+=		openstackimage
 
 cw-openstack-portinstall:
 .if exists(${PORTSDIR}/net/py-python-openstackclient/Makefile)
@@ -25,8 +25,8 @@ cw-openstack-portinstall:
 .endif
 	@touch ${.TARGET}
 
-openstackimage: cw-openstack ${CW_EC2_PORTINSTALL}
-.if !defined(OS_USERNAME) || !exists(${OS_USERNAME})
+openstackimage: cw-openstack ${CW_OPENSTACK_PORTINSTALL}
+.if !defined(OS_USERNAME)
 	@echo "--------------------------------------------------------------"
 	@echo ">>> OS_USERNAME must be specified for Openstack Image Upload"
 	@echo "--------------------------------------------------------------"
