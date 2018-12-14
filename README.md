@@ -3,7 +3,16 @@ This repository provides the base files for build your own FreeBSD image for Ope
 
 ## Requirements
 
-The only requirements are the ```src```(source) component installed and ```net/py-python-openstackclient``` port (for image upload)
+The only requirements are the ```src```(source) component installed and ```net/py-python-openstackclient``` port (for image upload).
+Source or define also the variables for openstack upload:
+
+* **OS_USERNAME**: Your Openstack username.
+* **OS_PASSWORD**: Your Openstack password.
+* **OS_AUTH_URL**: The auth URL for Keystone    
+* **OS_PROJECT_NAME**: The old fashion tenant name
+* **OS_USER_DOMAIN_NAME**: The user domain name (only for Keystone v3)
+* **OS_PROJECT_DOMAIN_NAME**: The Project domain name (only for Keystone v3)
+* **OS_IDENTITY_API_VERSION**: Keystone Identity API version
 
 ## Instructions
 
@@ -15,3 +24,4 @@ In order to build your Openstack FreeBSD image please download the archive from 
 4. Build the userland and the kernel ```make buildworld buildkernel```
 5. Move to the release folder ```cd /usr/src/release```
 6. Run ```make cloudware-release WITH_CLOUDWARE=yes CLOUDWARE=OPENSTACK```
+7. Run ```make openstack-upload``` to upload (and also install the port if missing) the image to your openstack cluster.

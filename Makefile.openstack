@@ -1,5 +1,5 @@
 #
-# $FreeBSD: releng/11.2/release/Makefile.openstack
+# $FreeBSD: releng/12.0/release/Makefile.openstack
 #
 #
 # Makefile for creating an Glance Image from a disk image.
@@ -12,7 +12,7 @@ CLEANFILES+=		${CW_OPENSTACK_PORTINSTALL}
 CW_OPENSTACK_PORTINSTALL=
 .endif
 
-CLEANFILES+=		openstackimage
+CLEANFILES+=		openstack-upload
 
 cw-openstack-portinstall:
 .if exists(${PORTSDIR}/net/py-python-openstackclient/Makefile)
@@ -25,7 +25,7 @@ cw-openstack-portinstall:
 .endif
 	@touch ${.TARGET}
 
-openstackimage: cw-openstack ${CW_OPENSTACK_PORTINSTALL}
+openstack-upload: cw-openstack ${CW_OPENSTACK_PORTINSTALL}
 .if !defined(OS_USERNAME)
 	@echo "--------------------------------------------------------------"
 	@echo ">>> OS_USERNAME must be specified for Openstack Image Upload"
