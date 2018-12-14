@@ -32,3 +32,7 @@ Tested on:
 
 * FreeBSD 11.x
 * FreeBSD 12.0
+
+## Notes
+
+* ZFS Module is present in the kernel, could be loaded using ```kldload zfs```
