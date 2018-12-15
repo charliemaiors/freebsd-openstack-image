@@ -1,5 +1,9 @@
 language: bash
 
+branches:
+  only:
+  - "/^v\\d+(\\.\\d+)+$/"
+
 script:
 - tar -cJf openstack.txz tools/ Makefile.openstack Makefile.vm
 
