@@ -36,6 +36,11 @@ Tested on:
 * FreeBSD 11.x
 * FreeBSD 12.0
 
+## Known Issues
+
+* No logs available in Horizon (tested with rsyslog and syslog)
+* No Python at default (add ```python2.7``` to ```VM_EXTRA_PACKAGES``` in ```openstack.conf```), if you are planning to manage it with ansible do not forget to use ```ansible_python_interpreter=/usr/local/bin/python2.7``` to your inventory.
+
 ## Notes
 
 * ZFS Module is present in the kernel, could be loaded using ```kldload zfs```
