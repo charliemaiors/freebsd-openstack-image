@@ -39,7 +39,7 @@ Tested on:
 ## Known Issues
 
 * No logs available in Horizon (tested with rsyslog and syslog)
-* No Python at default (add ```python2.7``` to ```VM_EXTRA_PACKAGES``` in ```openstack.conf```), if you are planning to manage it with ansible do not forget to use ```ansible_python_interpreter=/usr/local/bin/python2.7``` to your inventory.
+* No Python at default (add ```python``` to ```VM_EXTRA_PACKAGES``` in ```tools/openstack.conf```), if you are planning to manage it with ansible do not forget to use ```ansible_python_interpreter=/usr/local/bin/python2.7``` to your inventory.
 
 ## Notes
 
