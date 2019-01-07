@@ -1,8 +1,10 @@
 # FreeBSD Openstack Image
+
 This repository provides the base files for build your own FreeBSD image for Openstack using normal build system (using GENERIC kernel) and [CLOUDWARE](https://www.freebsd.org/cgi/man.cgi?release(7)).
 
 ## License
-License BSD
+
+BSD
 
 ## Requirements
 
@@ -11,7 +13,7 @@ Source or define also the variables for openstack upload:
 
 * **OS_USERNAME**: Your Openstack username.
 * **OS_PASSWORD**: Your Openstack password.
-* **OS_AUTH_URL**: The auth URL for Keystone    
+* **OS_AUTH_URL**: The auth URL for Keystone.
 * **OS_PROJECT_NAME**: The old fashion tenant name
 * **OS_USER_DOMAIN_NAME**: The user domain name (only for Keystone v3)
 * **OS_PROJECT_DOMAIN_NAME**: The Project domain name (only for Keystone v3)

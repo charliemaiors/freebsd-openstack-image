@@ -12,6 +12,7 @@ deploy:
   api_key: "$GITHUB_TOKEN"
   file_glob: true
   file: openstack.txz
+  body: $TRAVIS_COMMIT_MESSAGE
   skip_cleanup: true
   on:
     tags: true
