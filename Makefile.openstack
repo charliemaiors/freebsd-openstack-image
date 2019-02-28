@@ -44,12 +44,6 @@ openstack-upload: cw-openstack ${CW_OPENSTACK_PORTINSTALL}
 	@echo "--------------------------------------------------------------"
 	@false
 .endif
-.if !defined(PS1)
-	@echo "--------------------------------------------------------------"
-	@echo ">>> PS1 must be specified for Openstack Image Upload"
-	@echo "--------------------------------------------------------------"
-	@false
-.endif
 .if !defined(OS_PROJECT_NAME)
 	@echo "--------------------------------------------------------------"
 	@echo ">>> OS_PROJECT_NAME must be specified for Openstack Image Upload"
