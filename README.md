@@ -24,7 +24,7 @@ Source or define also the variables for openstack upload:
 In order to build your Openstack FreeBSD image please download the archive from the release page, and extract it in the ```/usr/src/release/``` folder. Then follow these instructions:
 
 1. Fetch the archive ```fetch <latest-release-url>```
-2. Extract the archive ```tar -C /usr/src/release -xvf openstack.tar.xz```
+2. Extract the archive ```tar -C /usr/src/release -xvf openstack.txz```
 3. Move the src folder (```cd /usr/src```)
 4. Build the userland and the kernel ```make buildworld buildkernel```
 5. Move to the release folder ```cd /usr/src/release```
