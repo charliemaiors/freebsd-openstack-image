@@ -25,7 +25,7 @@ In order to build your Openstack FreeBSD image please download the archive from 
 
 1. Fetch the archive ```fetch <latest-release-url>```
 2. Extract the archive ```tar -C /usr/src/release -xvf openstack.txz```
-3. Move the src folder (```cd /usr/src```)
+3. Move the src folder (```cd /usr/src```); run also ```ldconfig``` for the first time in order to create the "library cache"
 4. Build the userland and the kernel ```make buildworld buildkernel```
 5. Move to the release folder ```cd /usr/src/release```
 6. Run ```make cloudware-release WITH_CLOUDWARE=yes CLOUDWARE=OPENSTACK```
