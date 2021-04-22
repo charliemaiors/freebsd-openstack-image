@@ -29,14 +29,15 @@ In order to build your Openstack FreeBSD image please download the archive from 
 4. Build the userland and the kernel ```make buildworld buildkernel```
 5. Move to the release folder ```cd /usr/src/release```
 6. Run ```make cloudware-release WITH_CLOUDWARE=yes CLOUDWARE=OPENSTACK```
-7. Run ```make openstack-upload``` to upload (and also install the port if missing) the image to your openstack cluster.
+7. Run ```make openstack-upload``` to upload (and also install the port if missing) the image to your Openstack cluster.
 
 ## FreeBSD Versions
 
 Tested on:
 
 * FreeBSD 11.x
-* FreeBSD 12.0
+* FreeBSD 12.x
+* (In progress) FreeBSD 13.0
 
 ## Known Issues
 
